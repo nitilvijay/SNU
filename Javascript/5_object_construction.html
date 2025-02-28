@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Objects</h1>
+<h2>Contruction of Objects</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an Object
+function createobject(name, age, place)
+{
+    this.name=name;
+    this.age=age;
+    this.place=place;
+}
+const object1= new createobject("Nitil", 18, "Namakkal");
+const object2= new createobject("Vijay", 18, "Erode");
+
+/*The upcoming object also has the same properties as 
+the same function is used to create it.
+n number of objects can be created using the same function call.
+*/
+
+// Adding a new property to the object using object_variable.property_name
+//object.email="sample" the email will be added only to boject1
+
+// Adding a new property to the object using prototype
+//createobject.prototype.email="sample"
+// Here the email property will have a common value for all the objects created using the function.
+//Thus changing the value of email in prototype will change the value of email in all the objects.
+
+
+// Display Properties
+document.getElementById("demo").innerHTML = object.name+ ", " + object.age + ", " + object.place;
+</script>
+
+</body>
+</html>

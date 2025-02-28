@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Where TO</title>
+    <style>
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+
+        }
+
+        .button:hover {
+            background-color: blue;
+            /* Color on hover */
+            color: white;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Paragraph changed using function.";
+        }
+    </script>
+</head>
+
+<body>
+    <script src="external_javascript.js"></script>
+    <h1>Sample</h1>
+    <br>
+    <p id="demo">A Paragraph.</p>
+
+    <button onclick="document.getElementById('demo').innerHTML='It has changes'" class="button">Change</button>
+
+    <button onclick="document.getElementById('demo').innerHTML='A Paragraph'" class="button">Original</button>
+    
+    <button onclick="myFunction()" class="button">Change using function</button>
+
+    <button onclick="externalfunction()" class="button">Change using external function</button>
+</body>
+
+
+</html>

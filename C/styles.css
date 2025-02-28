@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+.container {
+    width: 300px;
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #262626;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form button {
+    background-color: #0095f6;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: #0077c7;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.divider span {
+    color: #8e8e8e;
+    font-size: 12px;
+    margin: 0 10px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+
+.fb-login {
+    background-color: transparent;
+    color: #385185;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.fb-login:hover {
+    text-decoration: underline;
+}
+
+.forgot-password {
+    color: #00376b;
+    font-size: 12px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.signup {
+    margin-top: 20px;
+}
+
+.signup p {
+    color: #8e8e8e;
+    font-size: 14px;
+}
+
+.signup a {
+    color: #0095f6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
