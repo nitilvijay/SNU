@@ -51,7 +51,6 @@ public:
     {
         if (head == nullptr)
         {
-            cout << "Stack underflow" << endl;
             return 'N';
         }
         node *temp = head;
@@ -67,47 +66,9 @@ public:
     {
         if (head == nullptr)
         {
-            cout << "Stack underflow" << endl;
             return 'N';
         }
 
         return head->data;
     }
 };
-
-int main()
-{
-    int choice, exit = 0;
-    char value,temp;
-
-    stack s;
-    while (exit == 0)
-    {
-        cout << "1. Push\n2. Pop\n3. Peek\n4. Display\n5. Exit" << endl;
-        cin >> choice;
-
-        switch (choice)
-        {
-        case 1:
-            cout << "Enter the value" << endl;
-            cin >> value;
-
-            s.push(value);
-            break;
-        case 2:
-            temp = s.pop();
-            cout << "Deleted value: " << temp << endl;
-            break;
-        case 3:
-            temp = s.peek();
-            cout << "The top value: " << temp << endl;
-            break;
-        case 4:
-            s.display();
-            break;
-        case 5:
-            exit = 1;
-            break;
-        }
-    }
-}
