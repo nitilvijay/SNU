@@ -104,18 +104,18 @@ public:
         node *temp = head;
         int count = 1;
 
-        while (count < pos - 1 && temp != nullptr)
+        while (count < pos - 1 && temp != head)
         {
             temp = temp->next;
             count++;
         }
 
-        if (temp == nullptr)
+        if (temp == head)
         {
             cout << "Out Of Bound" << endl;
             return;
         }
-        if (temp->next == nullptr)
+        if (temp->next == head)
         {
             insert_end(value);
             return;
