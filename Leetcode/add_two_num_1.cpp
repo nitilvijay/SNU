@@ -17,21 +17,6 @@ public:
 
     ListNode* l3;
 
-    void reverse(ListNode* lst)
-    {
-        ListNode* prev = nullptr;
-        ListNode* curr = lst;
-        ListNode* next = nullptr;
-
-        while(curr!=nullptr)
-        {
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
-
-    }
 
     void addnode(int val)
     {
@@ -59,10 +44,7 @@ public:
 
         int a,b;
 
-        reverse(l1);
-        reverse(l2);
-
-        while (1)
+        while (l1!=nullptr and l2!=nullptr)
         {
             a = 0;
             b = 0;
@@ -85,7 +67,6 @@ public:
             car = digit/10;
 
         }
-        reverse(l3);
         return l3;
     }
 };
