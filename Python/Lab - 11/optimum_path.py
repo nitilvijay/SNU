@@ -5,30 +5,53 @@ array = [[x for x in line.split()] for line in file_pointer]
 arr=list(array)
 lst = [] #keeping track of the visited zeros
 sum = 0
+temp = []
 
 for i in range(len(arr)):
     for j in range(len(arr)):
         arr[i][j]=int(arr[i][j])
 
 #finding the min of row and subtracting
-for i in arr:
-    min=(i[0])
-    for j in range(1,len(i)):
-        if ((i[j])<min):
-            min=(i[j])
-    for k in range(len(i)):
-        i[k]-=min
+def sub_row(arr, index = -1):
+    if index == -1:
+        for i in range(len(arr)):
+            mini=min(arr[i])
+            for k in range(len(arr)):
+                arr[i][k]-=mini
+    else:
+        temp = sorted(arr[index])
+        mini = temp[1]
+        for k in range(len(arr)):
+            for i in range(len(arr)):
+                arr[i][k]-=mini
 
 print()
 
 #finding min of columns and subtracting
-for i in range(len(arr)):
-    min=arr[0][i]
-    for j in range(1,len(arr)):
-        if arr[j][i]<min:
-            min=arr[j][i]
-    for k in range(len(arr)):
-        arr[k][i]-=min
+def sub_col(arr, index = -1):
+    if index == -1:
+        print("here")
+        for i in range(len(arr)):
+            mini = 9999
+            for k in range(len(arr)):
+                if arr[k][i]<mini:
+                    mini = arr[k][i]
+            for k in range(len(arr)):
+                arr[k][i]-=mini
+    else:
+        temp = []
+        for i in range(len(arr)):
+            temp.append(arr[i][index])
+        print(temp)
+        temp=sorted(temp)
+        
+        mini = temp[1]
+        print(mini)
+        for k in range(len(arr)):
+            arr[k][index]-=mini
+sub_row(arr)
+print(arr)
+sub_col(arr,1)
 
 # taking only the unique zeros
 for i in range(len(arr)):
@@ -39,4 +62,4 @@ for i in range(len(arr)):
             if arr[i][j] == 0:
                 sum+=array[i][j]
                 lst.append(j)
-print(lst)
+print(array)

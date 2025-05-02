@@ -15,4 +15,5 @@ for a in range(7):
     for j in range(len(lst)):
 
         print(lst[j][a],end = "")
+
 print()
