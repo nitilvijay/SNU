@@ -4,7 +4,7 @@ file = open("text.txt","r")
 
 # while True:
 
-for i in range(3):
+for i in range(4):
 
     read = file.readline()
     split = read.split()
@@ -16,12 +16,18 @@ for i in range(3):
                 temp.append((-1)*(float(split[a][1])))
 
         elif split[a].isalnum():
+            i = 0
+            num = ''
             
-            temp.append(float(split[a][0]))
+            while(i<len(split[a])):
+                if split[a][i].isdigit():
+                    num+= split[a][i]
+                i+=1
+            temp.append(float(num))
 
     
     A.append(temp)
-
+print(A)
 #making the first element as 1
 row = len(A)
 j = 0
@@ -56,5 +62,9 @@ y = A[1][-1]
 z = A[2][-1]
 
 print(f"x = {x}\ny = {y}\nz = {z}")
+
+if (row == 4):
+    w = A[3][-1]
+    print("w = ", w)
 
 
