@@ -1,127 +1,137 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <cstring> // For strlen function
 
 using std::cin;
 using std::cout;
+using std::endl;
 
 int palindrome()
 {
     char *arr = new char[100];
-    int *i = new int;
-    int *length = new int;
-    int *temp = new int;
-    int *found = new int;
-
-    cout << "Enter the word\n";
+    int i;
+    int length = 0;
+    int temp;
+    bool found = true; // Using boolean for clarity
+    
+    cout << "Enter the word: ";
     cin >> arr;
-
-    for (*i = 0; arr[(*i)] != '\n'; (*i)++)
+    
+    // Calculate string length correctly using strlen
+    length = strlen(arr);
+    temp = length - 1;
+    
+    // Check for palindrome
+    for (i = 0; i < length/2; i++)
     {
-        (*length)++;
-    }
-
-    *temp = (*length) - 1;
-
-    for (*i = 0; (*i) < (*length); (*i)++)
-    {
-        if (arr[(*i)] == arr[(*temp)])
+        if (arr[i] != arr[temp])
         {
-            *found = 1;
+            found = false;
+            break;
         }
-        else
-        {
-            *found = 0;
-        }
-        (*temp)--;
+        temp--;
     }
-
-    if (*found == 1)
+    
+    if (found)
     {
-        cout << "It is a Palindrome\n";
+        cout << "It is a Palindrome" << endl;
     }
+    else
+    {
+        cout << "It is not a Palindrome" << endl;
+    }
+    
+    // Free allocated memory
+    delete[] arr;
+    return 0;
 }
 
 int armstrong()
 {
-    int *number = new int;
-    int *digit = new int;
-    int *sum = new int;
-    int *temp = new int;
-    int *count = new int;
-
-    cout << "Enter the number";
-    cin >> *number;
-
-    *temp = *number;
-
-    while ((*temp) != 0)
+    int number;
+    int digit;
+    int sum = 0;
+    int temp;
+    int count = 0;
+    
+    cout << "Enter the number: ";
+    cin >> number;
+    
+    temp = number;
+    // Count the number of digits
+    while (temp != 0)
     {
-        *temp = (*temp) / 10;
-        (*count)++;
+        temp = temp / 10;
+        count++;
     }
-
-    *temp = *number;
-    *sum = 0;
-
-    while ((*temp) != 0)
+    
+    temp = number;
+    // Calculate the sum of digits raised to the power of count
+    while (temp != 0)
     {
-        *digit = (*temp) % 10;
-        *temp = (*temp) / 10;
-
-        *sum += pow((*digit), *count);
+        digit = temp % 10;
+        temp = temp / 10;
+        sum += pow(digit, count);
     }
-
-    if (*sum == *number)
+    
+    if (sum == number)
     {
-        cout << "It is a armstrong number\n";
+        cout << "It is an Armstrong number" << endl;
     }
     else
     {
-        cout << "It is not a armstrong number\n";
+        cout << "It is not an Armstrong number" << endl;
     }
+    
+    return 0;
 }
 
 int perfect()
 {
-    int *number = new int;
-    int *i = new int;
-    int *sum = new int;
-
-    cout << "Enter the number\n";
-    cin >> *number;
-
-    for (*i = 1; (*i) < (*number); (*i)++)
+    int number;
+    int sum = 0;
+    
+    cout << "Enter the number: ";
+    cin >> number;
+    
+    // Find the sum of divisors
+    for (int i = 1; i < number; i++)
     {
-        if ((*number) % (*i) == 0)
+        if (number % i == 0)
         {
-            *sum += (*i);
+            sum += i;
         }
     }
-
-    if (*sum == *number)
+    
+    if (sum == number)
     {
-        cout << "It is a perfect number\n";
+        cout << "It is a perfect number" << endl;
     }
     else
     {
-        cout << "It ain't a perfect number\n";
+        cout << "It is not a perfect number" << endl;
     }
+    
+    return 0;
 }
 
 int main()
 {
-    int *choice = new int;
-
-    int *exit = new int(0);
-
-    while ((*exit) == 0)
+    int choice;
+    bool exit = false;
+    
+    while (!exit)
     {
-        cout << "Enter the choice\n1. Palindrome\n2. Armstrong\n3. Perfect NUmber\n4. Exit\n";
-
-        cin >> *choice;
-
-        switch (*choice)
+        cout << "\nEnter the choice" << endl;
+        cout << "1. Palindrome" << endl;
+        cout << "2. Armstrong" << endl;
+        cout << "3. Perfect Number" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Choice: ";
+        cin >> choice;
+        
+        switch (choice)
         {
         case 1:
             palindrome();
@@ -133,8 +143,12 @@ int main()
             perfect();
             break;
         case 4:
-            *exit = 1;
+            exit = true;
             break;
+        default:
+            cout << "Invalid choice! Please try again." << endl;
         }
     }
+    
+    return 0;
 }

@@ -1,6 +1,6 @@
 // Menu driven program for sorting
-#include <stdio.h>
-
+#include <iostream>
+using namespace std;
 // insertion sort
 void insertion(int arr[], int num)
 {
@@ -98,5 +98,7 @@ int main()
     for (int i = 0; i < num; i++)
     {
         printf("%d", arr[i]);
+        cout << " ";
     }
+    cout << endl;
 }
